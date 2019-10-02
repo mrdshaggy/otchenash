@@ -3,22 +3,76 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RPS</title>
+  <title>Otchenash</title>
+  <link href="https://fonts.googleapis.com/css?family=Ruslan+Display&display=swap&subset=cyrillic,latin-ext" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Kelly+Slab&display=swap&subset=cyrillic" rel="stylesheet">
+  <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAADPABc2QAD///8Au7u/AGBgYwA2NjYAVF+RAHN6mQDIyc8AN0FuAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABERAAAAMzMxMzAQRERERBGZkRBmVWZWYRERAFVFVUVREREQRERERBEzMBAAADMzMRmREAAAMzMzEREACKqoozMzMACiqqJ4MzMwAIiqeIczMzAAd3eHeDMAAACKqoqjMwMAAACIiDMzAAAAAAAAAAAAAAD//wAA4AMAAOABAAAAAQAAAAMAAAABAAAAAQAA4AEAAOADAACAAwAAAAMAAAADAAAAAwAAAAcAAMAPAADgHwAA" rel="icon" type="image/x-icon" />
 </head>
 <body>
-  <h1>Галицьке чу-ва-чі</h1>
+  
 
-  <div class="user">
-    <div class="user__choose">
-      <input class="userSelect" type="button" value="Бабка грекокатолик">
-      <input class="userSelect" type="button" value="Автобус">
-      <input class="userSelect" type="button" value="Хресна хода">
+  <section class="game">
+    <div class="user">
+      <div class="user__choose">
+        <input class="userSelect" type="button" value="Бабка грекокатолик">
+        <input class="userSelect" type="button" value="Автобус">
+        <input class="userSelect" type="button" value="Хресна хода">
+      </div>
     </div>
-  </div>
 
-  <!-- <button id="checkAll">Check all</button> -->
-  <p>Результати:</p>
-  <p id="results"></p>
+    <!-- <button id="checkAll">Check all</button> -->
+    <p>Результати:</p>
+    <p id="results"></p>
+
+    <div id="hh"></div>
+  </section>
+  
+
+  <section class="homescreen">
+    <h1 class="text-center">Слава Ісу!</h1>
+    <h2 class="text-center">
+      То є всеукраїнське чу-ва-чі по-галицьки!
+      <br>
+      Ба більше, то є Otchenash!
+    </h2>
+    <h3 class="text-center">Дійові особи:</h3>
+    
+    <div class="row">
+      <div class="col">
+        <div class="role">
+          <div class="role__name">
+            Бабка грекокатоличка
+          </div>
+          <div class="role__img"></div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="role">
+          <div class="role__name">
+            Автобус
+          </div>
+          <div class="role__img"></div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="role">
+          <div class="role__name">
+            Хресна хода
+          </div>
+          <div class="role__img"></div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="text-center">Правила:</h3>
+    <div class="rules">
+      <p><b>Бабка грекокатоличка</b> - страх і ненависть атеїстів у автобусі. Бабка закриває усі вікна. Автобус гинe від задухи. Занавєс.</p>
+      <p><b>Автобус</b> - нищівна сила для хресної ходи! Поперекривають все місто! Затори страшні! Давити їх, жеби більше не ходили!</p>
+      <p><b>Хресна хода</b> - то є святе для каждої бабки. Жодна праведна бабка не може не долучитися до хресної ходи.</p>
+    </div>
+
+    <button id="playBtn">Otchenash!</button>
+  </section>
 
   
 </body>
