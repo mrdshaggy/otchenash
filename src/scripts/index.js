@@ -1,5 +1,5 @@
 // Sytles import
-// import '../styles/index.scss';
+import '../styles/index.scss';
 
 // JS import
 import './play';
@@ -22,13 +22,13 @@ function userSelect() {
       disableButtons();
       playSlogan();
       if (val == 'Автобус') {
-        gif.style.backgroundImage = "url('../../assets/bus-stopped.gif')";
+        gif.style.backgroundImage = "url('../assets/bus-stopped.gif')";
       }
       else if (val == 'Бабка грекокатоличка') {
-        gif.style.backgroundImage = "url('../../assets/babka-stopped.gif')";
+        gif.style.backgroundImage = "url('../assets/babka-stopped.gif')";
       }
       else if (val == 'Хресна хода') {
-        gif.style.backgroundImage = "url('../../assets/hh-stopped.gif')";
+        gif.style.backgroundImage = "url('../assets/hh-stopped.gif')";
       }
       init(val);
     };
