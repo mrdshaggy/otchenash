@@ -4,7 +4,6 @@ import '../styles/index.scss';
 // JS import
 import './play';
 
-
 // User selection
 let gif = document.getElementById('gif');
 let logText = '';
