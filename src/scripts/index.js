@@ -6,28 +6,69 @@ import './play';
 
 
 // User selection
+let gif = document.getElementById('gif');
+let logText = '';
+let log = document.getElementById('results');
+
 let userChoice;
 function userSelect() {
   let choices = document.querySelectorAll('.userSelect');
   choices.forEach((element) => {
     element.onclick = function() {
-      init(this.value);
+      let val = this.value;
+      gif.style.backgroundImage = "";
+      logText = "";
+      log.innerHTML = "";
+      disableButtons();
+      playSlogan();
+      if (val == 'Автобус') {
+        gif.style.backgroundImage = "url('../../assets/bus-stopped.gif')";
+      }
+      else if (val == 'Бабка грекокатоличка') {
+        gif.style.backgroundImage = "url('../../assets/babka-stopped.gif')";
+      }
+      else if (val == 'Хресна хода') {
+        gif.style.backgroundImage = "url('../../assets/hh-stopped.gif')";
+      }
+      init(val);
     };
   });
 }
 userSelect();
 
-// const checkBtn = document.getElementById('checkAll');
-// checkBtn.onclick = function() {
-//   console.log(userChoice);
-// };
+// otchenash
+function playSlogan() {
+  let slogan = ['O', 'tche', 'nash!'];
+  let i = 0;
+  let sloganText = document.getElementById('slogan');
+  let interval = setInterval(function(){
+    sloganText.innerHTML = slogan[i++];
+    if(i == slogan.length){
+       clearInterval(interval);
+       enableButtons();
+       log.innerHTML = logText;
+    }
+  }, 520);
+}
 
+// disable buttons
+let btns = document.querySelectorAll('.userSelect');
+function disableButtons() {
+  btns.forEach((el) => {
+    el.setAttribute('disabled', "disabled");
+  });
+}
+function enableButtons() {
+  btns.forEach((el) => {
+    el.removeAttribute('disabled');
+  });
+}
 
 
 // Initialization
 function init(val) {
   userChoice = val.toLowerCase();
-  let choiceStack = ['бабка грекокатолик', 'автобус', 'хресна хода'];
+  let choiceStack = ['бабка грекокатоличка', 'автобус', 'хресна хода'];
   let userChoiceIndex = choiceStack.indexOf(userChoice);
   
   let randomNum = Math.floor(Math.random() * 3);
@@ -49,28 +90,34 @@ function init(val) {
 
   console.log(`Твій вибір ${userChoice}, комп вибрав ${computerChoice}. ` + ` ---- ` + resultMap[userResult]);
 
-  let log = document.getElementById('results');
-
-  if (userChoice == 'бабка грекокатолик' && userResult == 'c') {
-    log.innerHTML = 'Кажда віруюча бабка ходить на хресну ходу! Вона поглинає бабку! Ти програв!';  
+  
+  if (userChoice == 'бабка грекокатоличка' && userResult == 'c') {
+    logText = 'Кажда віруюча бабка ходить на хресну ходу! Вона поглинає бабку! Ти програв!';
+    return;
   }
-  if (userChoice == 'бабка грекокатолик' && userResult == 'u') {
-    log.innerHTML = 'Закрити всі вікна в автобусі! Негайно! Дує! Всі задихаються. Ти переміг!';  
+  if (userChoice == 'бабка грекокатоличка' && userResult == 'u') {
+    logText = 'Закрити всі вікна в автобусі! Негайно! Дує! Всі задихаються. Ти переміг!';  
+    return;
   }
   if (userChoice == 'автобус' && userResult == 'c') {
-    log.innerHTML = 'Даремно ти сів в той автобус! Бабка закриває вікна! Задихнешся! Ти програв!';  
+    logText = 'Даремно ти сів в той автобус! Бабка закриває вікна! Задихнешся! Ти програв!';  
+    return;
   }
   if (userChoice == 'автобус' && userResult == 'u') {
-    log.innerHTML = 'Дави їх дави! Розходилися тут ті християни! Пів міста перекрили! Ти переміг!';  
+    logText = 'Дави їх дави! Розходилися тут ті християни! Пів міста перекрили! Ти переміг!';  
+    return;
   }
   if (userChoice == 'хресна хода' && userResult == 'c') {
-    log.innerHTML = 'Жодна віра не допоможе коли тебе переїде автобус! Ти програв!';  
+    logText = 'Жодна віра не допоможе коли тебе переїде автобус! Ти програв!';  
+    return;
   }
   if (userChoice == 'хресна хода' && userResult == 'u') {
-    log.innerHTML = 'О, бабка тут як тут! Прошу до нас пані! Ти переміг!';  
+    logText = 'О, бабка тут як тут! Прошу до нас пані! Ти переміг!';  
+    return;
   }
   if (userChoice == computerChoice) {
-    log.innerHTML = 'Овва! Нічия!';  
+    logText = 'Овва! Нічия!';  
+    return;
   }
 }
 
